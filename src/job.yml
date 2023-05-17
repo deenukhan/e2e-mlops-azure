@@ -1,15 +1,15 @@
 $schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
-code: model
+code: src/model
 command: >-
-  python 
-  --
-  --
+  python train.py
+  --training_data ${{inputs.training_data}}
 inputs:
   training_data: 
-    type: uri_folder 
-    path: 
+    type: uri_file 
+    path: azureml://subscriptions/7467ff9d-b14c-4820-831d-da9d4e70239a/resourcegroups/ml-workload/workspaces/ml-research/datastores/workspaceblobstore/paths/UI/2023-05-16_104216_UTC/
+    mode: ro_mount
   reg_rate: 0.01
 environment: azureml:AzureML-sklearn-0.24-ubuntu18.04-py37-cpu@latest
-compute: 
-experiment_name: 
-description: 
+compute: testvm-first
+experiment_name: diabatest-exp1
+description: This is the first training job experiment
