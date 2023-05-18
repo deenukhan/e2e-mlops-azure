@@ -21,7 +21,7 @@ def main(args):
 
     # TO DO: enable autologging
     mlflow.sklearn.autolog()
-            
+
     # read data
     df = get_csvs_df(args.training_data)
 
