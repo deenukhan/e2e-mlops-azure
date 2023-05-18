@@ -28,6 +28,10 @@ jobs:
       run: | 
         flake8 src/model/
         
+    - name: Running Unit Test Cases
+      run: | 
+        python test/test_train.py
+        
     - name: Azure login
       uses: azure/login@v1
       with:
