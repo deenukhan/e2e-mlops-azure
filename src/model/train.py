@@ -10,14 +10,14 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split
 
 FEATURES = ['Pregnancies', 'PlasmaGlucose', 'DiastolicBloodPressure',
-            'TricepsThickness', 'SerumInsulin', 'BMI', 
+            'TricepsThickness', 'SerumInsulin', 'BMI',
             'DiabetesPedigree', 'Age']
 TARGET_VARIABLE = ['Diabetic']
 
 
 # define functions
 def main(args):
-            
+
     # TO DO: enable autologging
     mlflow.sklearn.autolog()
 
@@ -32,16 +32,16 @@ def main(args):
 
 
 def split_data(df):
-    
+
 
     X, y = df[FEATURES].values, df[TARGET_VARIABLE].values
     X_train, X_test, y_train, y_test = train_test_split(
-                                                X, y, test_size=0.30, random_state=0 )
+                X, y, test_size=0.30, random_state=0 )
     return X_train, X_test, y_train, y_test
 
 
 def get_csvs_df(path):
-    
+
 
     if not os.path.exists(path):
         raise RuntimeError(f"Cannot use non-existent path provided: {path}")
@@ -79,7 +79,7 @@ def parse_args():
 
 # run script
 if __name__ == "__main__":
-    
+
     # add space in logs
     print("\n\n")
     print("*" * 60)
