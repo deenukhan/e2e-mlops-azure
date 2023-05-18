@@ -17,7 +17,6 @@ jobs:
         creds: ${{secrets.AZURE_CREDENTIALS}}
     - name: Trigger Azure Machine Learning job
       run: |
-        az ml compute create --name "testvm-first" --size STANDARD_DS11_V2 --type ComputeInstance -g ml-workload -w ml-research 
         az ml job create --file src/job.yml -g ml-workload -w ml-research 
 
 
