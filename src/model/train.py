@@ -12,11 +12,13 @@ from sklearn.model_selection import train_test_split
 FEATURES = ['Pregnancies', 'PlasmaGlucose', 'DiastolicBloodPressure',
             'TricepsThickness', 'SerumInsulin', 'BMI',
             'DiabetesPedigree', 'Age']
+
 TARGET_VARIABLE = ['Diabetic']
 
 
 # define functions
 def main(args):
+
 
     # TO DO: enable autologging
     mlflow.sklearn.autolog()
@@ -32,6 +34,7 @@ def main(args):
 
 
 def split_data(df):
+
 
     X, y = df[FEATURES].values, df[TARGET_VARIABLE].values
     X_train, X_test, y_train, y_test = train_test_split(
@@ -77,6 +80,7 @@ def parse_args():
 
 # run script
 if __name__ == "__main__":
+
 
     # add space in logs
     print("\n\n")
