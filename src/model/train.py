@@ -19,10 +19,9 @@ TARGET_VARIABLE = ['Diabetic']
 # define functions
 def main(args):
 
-
     # TO DO: enable autologging
     mlflow.sklearn.autolog()
-
+            
     # read data
     df = get_csvs_df(args.training_data)
 
@@ -34,7 +33,6 @@ def main(args):
 
 
 def split_data(df):
-
 
     X, y = df[FEATURES].values, df[TARGET_VARIABLE].values
     X_train, X_test, y_train, y_test = train_test_split(
@@ -80,7 +78,6 @@ def parse_args():
 
 # run script
 if __name__ == "__main__":
-
 
     # add space in logs
     print("\n\n")
