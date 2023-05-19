@@ -1,7 +1,10 @@
-from model.train import get_csvs_df
+# from model.train import get_csvs_df
 import os
 import pytest
 
+import sys
+sys.path.append(r"src/model")
+from train import get_csvs_df
 
 def test_csvs_no_files():
     with pytest.raises(RuntimeError) as error:
