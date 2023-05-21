@@ -31,7 +31,7 @@ jobs:
       run: | 
         flake8 src/model/
         
-    - name: Running Unit Test Cases
+    - name: Running Unit Test Casess
       run: | 
         python tests/test_train.py
         
@@ -40,7 +40,7 @@ jobs:
       with:
         creds: ${{secrets.AZURE_CREDENTIALS}}
 
-    - name: Trigger Azure Machine Learning job
+    - name: Trigger Azure Machine Learning job for Prod 
       run: |
-        az ml compute create --name "testdev-vm-second" --size STANDARD_DS11_V2 --type ComputeInstance -g ml-workload -w ml-research
-        az ml job create --file src/job_prod.yml -g ml-workload -w ml-research 
+        az ml compute create --name "testdev-vm-second-prod1" --size STANDARD_DS11_V2 --type ComputeInstance -g ml-workload-prod -w ml-research-prod
+        az ml job create --file src/job_prod.yml -g ml-workload-prod -w ml-research-prod 

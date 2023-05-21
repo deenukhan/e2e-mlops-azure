@@ -6,10 +6,10 @@ command: >-
 inputs:
   training_data: 
     type: uri_file 
-    path: azureml://subscriptions/7467ff9d-b14c-4820-831d-da9d4e70239a/resourcegroups/ml-workload/workspaces/ml-research-prod/datastores/workspaceblobstore/paths/UI/2023-05-21_105851_UTC/
+    path: azureml://subscriptions/7467ff9d-b14c-4820-831d-da9d4e70239a/resourcegroups/ml-workload-prod/workspaces/ml-research-prod/datastores/workspaceblobstore/paths/UI/2023-05-21_114844_UTC/
     mode: ro_mount
   reg_rate: 0.01
 environment: azureml:AzureML-sklearn-0.24-ubuntu18.04-py37-cpu@latest
-compute: testdev-vm-second
+compute: testdev-vm-second-prod1
 experiment_name: diabatest-exp-prod
 description: This is the first training job experiment in Production
