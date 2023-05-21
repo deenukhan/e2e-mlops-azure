@@ -1,4 +1,4 @@
-name: Azure Machine Learning job for Dev
+name: Azure Machine Learning job for Prod
 
 on:
   pull_request:
@@ -9,7 +9,7 @@ jobs:
   train:
     runs-on: ubuntu-latest
     environment:
-        name: dev 
+        name: prod 
     steps:
     - name: Check out repo
       uses: actions/checkout@main
@@ -31,7 +31,7 @@ jobs:
       run: | 
         flake8 src/model/
         
-    - name: Running Unit Test Casess
+    - name: Running Unit Test Cases
       run: | 
         python tests/test_train.py
         
@@ -42,5 +42,5 @@ jobs:
 
     - name: Trigger Azure Machine Learning job
       run: |
-        az ml compute create --name "testdev-vm-second" --size STANDARD_DS11_V2 --type ComputeInstance -g ml-workload -w ml-research 
-        az ml job create --file src/job.yml -g ml-workload -w ml-research 
+        az ml compute create --name "testdev-vm-second" --size STANDARD_DS11_V2 --type ComputeInstance -g ml-workload -w ml-research
+        az ml job create --file src/job_prod.yml -g ml-workload -w ml-research 
