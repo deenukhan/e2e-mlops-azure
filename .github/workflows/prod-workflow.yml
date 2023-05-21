@@ -42,5 +42,5 @@ jobs:
 
     - name: Trigger Azure Machine Learning job for Prod 
       run: |
-        az ml compute create --name "testdev-vm-second-prod" --size STANDARD_DS11_V2 --type ComputeInstance -g ml-workload -w ml-research-prod
-        az ml job create --file src/job_prod.yml -g ml-workload -w ml-research 
+        az ml compute create --name "testdev-vm-second-prod1" --size STANDARD_DS11_V2 --type ComputeInstance -g ml-workload-prod -w ml-research-prod
+        az ml job create --file src/job_prod.yml -g ml-workload-prod -w ml-research-prod 
