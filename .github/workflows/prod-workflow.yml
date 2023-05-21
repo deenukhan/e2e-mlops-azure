@@ -1,4 +1,4 @@
-name: Azure Machine Learning job for Dev
+name: Azure Machine Learning job for Prod
 
 on:
   pull_request:
